@@ -46,14 +46,14 @@ function buildMine() {
     var mineGoldCost = Math.floor(30 * Math.pow(1.1, mines));
     var mineLumberCost = Math.floor(50 * Math.pow(1.1, mines));
     if (gold >= mineGoldCost && lumber >= mineLumberCost) {
-        mines++;
+        mines = mines + 1;
         max_miners = max_miners + 5;
         gold = gold - mineGoldCost;
         lumber = lumber - mineLumberCost;
         
     }
-    var nextGoldCost = Math.floor(10 * Math.pow(1.1, farms));
-    var nextLumberCost = Math.floor(5 * Math.pow(1.1, farms));
+    var nextGoldCost = Math.floor(30 * Math.pow(1.1, mines));
+    var nextLumberCost = Math.floor(50 * Math.pow(1.1, mines));
     document.getElementById("mines").innerHTML = mines;
     document.getElementById("mineGoldCost").innerHTML = nextGoldCost;
     document.getElementById("mineLumberCost").innerHTML = nextLumberCost;
@@ -71,7 +71,7 @@ function buyMiner() {
     var nextGoldCost = Math.floor(5 * Math.pow(1.1, miners));
     document.getElementById("gold").innerHTML = gold;
     document.getElementById("miners").innerHTML = miners;
-    document.getElementById("minerGoldCost").innerHTML = nextGoldCost;
+    document.getElementById("miner_cost").innerHTML = nextGoldCost;
     document.getElementById("current_pop").innerHTML = population;
 }
 window.setInterval(function() {
