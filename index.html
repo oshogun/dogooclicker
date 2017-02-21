@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="interface.css" />
+        <title> Dogoo Clicker </title>
+    </head>
+    <body onload="init()">
+        <button type="button" onclick="increaseGold(1)"> Mine gold </button>
+        <button type="button" onclick="increaseLumber(1)"> Chop tree </button>
+        <p>Gold: <span id="gold">0</span> </p>
+        <p>Lumber: <span id="lumber">0</span></p>
+        <p>Population: <span id="current_pop">0</span> / <span id="pop_limit">0</span></p>
+        <h1>---------------------------------</h1>
+        <h1> Buildings </h1>
+        <h2> Farms: increase population limit </h2>
+        <p> Farms: <span id="farms">0</span></p>
+        <p> Cost: <span id="farmGoldCost">10</span> gold, <span id="farmLumberCost">5</span> lumber </p>
+        <button type="button" onclick="buildFarm()"> Build farm </button>
+        <h2> Gold Mines: allows workers to mine gold </h2>
+        <p> Mines: <span id="mines">0</span> (cost <span id="minerGoldCost">30</span> gold, <span id="minerLumberCost">50</span> lumber)</p>
+        <p> Miners: <span id="miners">0</span> / <span id="max_miners">0</span> (cost <span id="miner_cost">5</span> gold) </p>
+        <button type="button" onclick="buildMine()"> Build mine </button>
+        <button type="button" onclick="buyMiner()"> Create miner </button>
+        <script type="text/javascript" src="main.js"></script>
+    </body
+</html>
