@@ -6,6 +6,10 @@ var farms = 0;
 var mines = 0;
 var miners = 0;
 var max_miners = 0;
+var lumber_camps = 0;
+var lumberjacks = 0;
+var max_lumberjacks = 0;
+
 function init() {
     document.getElementById("gold").innerHTML = gold;
     document.getElementById("lumber").innerHTML = lumber;
@@ -74,6 +78,44 @@ function buyMiner() {
     document.getElementById("miner_cost").innerHTML = nextGoldCost;
     document.getElementById("current_pop").innerHTML = population;
 }
+
+
+function buildLumberCamp() {
+    var lcGoldCost = Math.floor(50 * Math.pow(1.1, lumber_camps));
+    var lcLumberCost = Math.floor(30 * Math.pow(1.1, lumber_camps));
+    if (gold >= lcGoldCost && lumber >= lcLumberCost) {
+        lumber_camps = lumber_camps + 1;
+        max_lumberjacks = max_lumberjacks + 5;
+        gold = gold - lcGoldCost;
+        lumber = lumber - lcLumberCost;
+        
+    }
+    var nextGoldCost = Math.floor(50 * Math.pow(1.1, lumber_camps));
+    var nextLumberCost = Math.floor(30 * Math.pow(1.1, lumber_camps));
+    document.getElementById("lumber_camps").innerHTML = lumber_camps;
+    document.getElementById("lcGoldCost").innerHTML = nextGoldCost;
+    document.getElementById("lcLumberCost").innerHTML = nextLumberCost;
+    document.getElementById("gold").innerHTML = gold;
+    document.getElementById("lumber").innerHTML = lumber;
+    document.getElementById("max_lumberjacks").innerHTML = max_lumberjacks;
+}
+
+function buyLumberjack() {
+    var ljGoldCost = Math.floor(5 * Math.pow(1.1, lumberjacks));
+    if (population < pop_limit && ljGoldCost <= gold && lumberjacks < max_lumberjacks) {
+        lumberjacks++;
+        gold -= ljGoldCost;
+        population++;
+    }
+    var nextGoldCost = Math.floor(5 * Math.pow(1.1, lumberjacks));
+    document.getElementById("gold").innerHTML = gold;
+    document.getElementById("lumberjacks").innerHTML = lumberjacks;
+    document.getElementById("ljGoldCost").innerHTML = nextGoldCost;
+    document.getElementById("current_pop").innerHTML = population;
+}
+
+
 window.setInterval(function() {
     increaseGold(miners);
+    increaseLumber(lumberjacks);
 }, 1000);

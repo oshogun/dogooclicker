@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8">
+        <meta charset="UTF-8">
     <head>
         <link rel="stylesheet" type="text/css" href="interface.css" />
         <title> Dogoo Clicker </title>
@@ -22,6 +22,11 @@
         <p> Miners: <span id="miners">0</span> / <span id="max_miners">0</span> (cost <span id="miner_cost">5</span> gold) </p>
         <button type="button" onclick="buildMine()"> Build mine </button>
         <button type="button" onclick="buyMiner()"> Create miner </button>
+        <h2> Lumber Camps: allows lumberjacks to harvest wood </h2>
+        <p> Lumber camps: <span id="lumber_camps">0</span> (cost <span id="lcGoldCost">50</span> gold, <span id = "lcLumberCost">30</span> lumber) </p>
+        <p> Lumberjacks: <span id="lumberjacks">0</span> / <span id="max_lumberjacks">0</span> (cost <span id="ljGoldCost">5</span> gold) </p>
+        <button type="button" onclick="buildLumberCamp()"> Build lumber camp </button>
+        <button type="button" onclick="buyLumberjack()"> Create lumberjack </button>
         <script type="text/javascript" src="main.js"></script>
     </body
 </html>
