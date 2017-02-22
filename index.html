@@ -8,10 +8,10 @@
     <body onload="init()">
         <button type="button" onclick="increaseGold(1)"> Mine gold </button>
         <button type="button" onclick="increaseLumber(1)"> Chop tree </button>
-        <p>Gold: <span id="gold">0</span> </p>
-        <p>Lumber: <span id="lumber">0</span></p>
+        <p>Gold: <span id="gold">0</span> (<span id="goldPerSec">0</span> per second)</p>
+        <p>Lumber: <span id="lumber">0</span> (<span id="lumberPerSec">0</span> per second)</p>
         <p>Population: <span id="current_pop">0</span> / <span id="pop_limit">0</span></p>
-        <h1>---------------------------------</h1>
+        <hr>
         <h1> Buildings </h1>
         <h2> Farms: increase population limit </h2>
         <p> Farms: <span id="farms">0</span></p>
@@ -27,6 +27,11 @@
         <p> Lumberjacks: <span id="lumberjacks">0</span> / <span id="max_lumberjacks">0</span> (cost <span id="ljGoldCost">5</span> gold) </p>
         <button type="button" onclick="buildLumberCamp()"> Build lumber camp </button>
         <button type="button" onclick="buyLumberjack()"> Create lumberjack </button>
+        <h2> Markets: allows traders to inflate gold production </h2>
+        <p> Markets: <span id="markets">0</span> (cost <span id="marketGoldCost">1000</span> gold, <span id="marketLumberCost">680</span> lumber) </p>
+        <p> Traders: <span id="traders">0</span> / <span id="max_traders">0</span> (cost <span id="traderCost">40</span> gold) </p>
+        <button type="button" onclick="buildMarket()"> Build market </button>
+        <button type="button" onclick="buyTrader()"> Create trader </button>
         <script type="text/javascript" src="main.js"></script>
     </body
 </html>

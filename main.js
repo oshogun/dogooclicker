@@ -1,14 +1,21 @@
+var gold_multiplier = 1;
 var gold = 0;
 var lumber = 0;
 var population = 0;
 var pop_limit = 10;
 var farms = 0;
+
 var mines = 0;
 var miners = 0;
 var max_miners = 0;
+
 var lumber_camps = 0;
 var lumberjacks = 0;
 var max_lumberjacks = 0;
+
+var markets = 0;
+var traders = 0;
+var max_traders = 0;
 
 function init() {
     document.getElementById("gold").innerHTML = gold;
@@ -114,8 +121,44 @@ function buyLumberjack() {
     document.getElementById("current_pop").innerHTML = population;
 }
 
+function buildMarket() {
+    var marketGoldCost = Math.floor(1000 * Math.pow(1.1, markets));
+    var marketLumberCost = Math.floor(680 * Math.pow(1.1, markets));
+    if (gold >= marketGoldCost && lumber >= marketLumberCost) {
+        markets = markets + 1;
+        max_traders = max_traders + 5;
+        gold = gold -marketGoldCost;
+        lumber = lumber - marketLumberCost;
+        
+    }
+    var nextGoldCost = Math.floor(1000 * Math.pow(1.1, markets));
+    var nextLumberCost = Math.floor(680 * Math.pow(1.1, markets));
+    document.getElementById("markets").innerHTML = markets;
+    document.getElementById("marketGoldCost").innerHTML = nextGoldCost;
+    document.getElementById("marketLumberCost").innerHTML = nextLumberCost;
+    document.getElementById("gold").innerHTML = gold;
+    document.getElementById("lumber").innerHTML = lumber;
+    document.getElementById("max_traders").innerHTML = max_traders;
+}
 
+function buyTrader() {
+    var traderCost = Math.floor(40 * Math.pow(1.1, traders));
+    if (population < pop_limit && traderCost <= gold && traders < max_traders) {
+        traders = traders + 1;
+        gold -= traderCost;
+        population++;
+        gold_multiplier+= Math.floor(Math.pow(1.2, traders));
+    }
+    var nextGoldCost = Math.floor(40 * Math.pow(1.1, traders));
+    document.getElementById("gold").innerHTML = gold;
+    document.getElementById("traders").innerHTML = traders;
+    document.getElementById("traderCost").innerHTML = nextGoldCost;
+    document.getElementById("current_pop").innerHTML = population;
+
+}
 window.setInterval(function() {
-    increaseGold(miners);
+    document.getElementById("goldPerSec").innerHTML = miners * gold_multiplier;
+    document.getElementById("lumberPerSec").innerHTML = lumberjacks;
+    increaseGold(miners * gold_multiplier);
     increaseLumber(lumberjacks);
 }, 1000);
