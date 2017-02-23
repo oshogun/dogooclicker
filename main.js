@@ -1,4 +1,5 @@
 var gold_multiplier = 1;
+var lumber_multiplier = 1;
 var gold = 0;
 var lumber = 0;
 var population = 0;
@@ -17,13 +18,17 @@ var markets = 0;
 var traders = 0;
 var max_traders = 0;
 
+var sawmills = 0;
+var workers = 0;
+var max_workers = 0;
+
 function init() {
     document.getElementById("gold").innerHTML = gold;
     document.getElementById("lumber").innerHTML = lumber;
     document.getElementById("current_pop").innerHTML = population;
     document.getElementById("pop_limit").innerHTML = pop_limit;
-    document.getElementById("farms").innerHTML = farms
-    document.getElementById("max_miners").innerHTML= max_miners;
+    document.getElementById("farms").innerHTML = farms;
+    document.getElementById("max_miners").innerHTML = max_miners;
 }
 function increaseGold(factor) {
     gold += factor;
@@ -147,18 +152,53 @@ function buyTrader() {
         traders = traders + 1;
         gold -= traderCost;
         population++;
-        gold_multiplier+= Math.floor(Math.pow(1.2, traders));
+        gold_multiplier+= Math.floor(Math.pow(traders, Math.E));
     }
     var nextGoldCost = Math.floor(40 * Math.pow(1.1, traders));
     document.getElementById("gold").innerHTML = gold;
     document.getElementById("traders").innerHTML = traders;
     document.getElementById("traderCost").innerHTML = nextGoldCost;
     document.getElementById("current_pop").innerHTML = population;
-
 }
+
+function buildSawmill() {
+    var sawmillGoldCost = Math.floor(1000 * Math.pow(1.1, sawmills));
+    var sawmillLumberCost = Math.floor(680 * Math.pow(1.1, sawmills));
+    if (gold >= sawmillGoldCost && lumber >= sawmillLumberCost) {
+        sawmills = sawmills + 1;
+        max_workers = max_workers + 5;
+        gold = gold -sawmillGoldCost;
+        lumber = lumber - sawmillLumberCost;
+        
+    }
+    var nextGoldCost = Math.floor(1000 * Math.pow(1.1, sawmills));
+    var nextLumberCost = Math.floor(680 * Math.pow(1.1, sawmills));
+    document.getElementById("sawmills").innerHTML = sawmills;
+    document.getElementById("marketGoldCost").innerHTML = nextGoldCost;
+    document.getElementById("marketLumberCost").innerHTML = nextLumberCost;
+    document.getElementById("gold").innerHTML = gold;
+    document.getElementById("lumber").innerHTML = lumber;
+    document.getElementById("max_workers").innerHTML = max_workers;
+}
+
+function buyWorker() {
+    var workerCost = Math.floor(40 * Math.pow(1.1, workers));
+    if (population < pop_limit && workerCost <= gold && workers < max_workers) {
+        workers = workers + 1;
+        gold -= workerCost;
+        population++;
+        lumber_multiplier += Math.floor(Math.pow(workers, Math.E));
+    }
+    var nextGoldCost = Math.floor(40 * Math.pow(1.1, workers));
+    document.getElementById("gold").innerHTML = gold;
+    document.getElementById("workers").innerHTML = workers;
+    document.getElementById("workerCost").innerHTML = nextGoldCost;
+    document.getElementById("current_pop").innerHTML = population;
+}
+
 window.setInterval(function() {
     document.getElementById("goldPerSec").innerHTML = miners * gold_multiplier;
-    document.getElementById("lumberPerSec").innerHTML = lumberjacks;
+    document.getElementById("lumberPerSec").innerHTML = lumberjacks * lumber_multiplier;
     increaseGold(miners * gold_multiplier);
-    increaseLumber(lumberjacks);
+    increaseLumber(lumberjacks * lumber_multiplier);
 }, 1000);
