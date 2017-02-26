@@ -29,7 +29,7 @@ function init() {
     document.getElementById("pop_limit").innerHTML = pop_limit;
     document.getElementById("farms").innerHTML = farms;
     document.getElementById("max_miners").innerHTML = max_miners;
-    alert("Task failed succesfully");
+    alert("ACHA QUE TENS O QUE É NECESSARIO PARA CLICARES NO MEU COOKIE?");
 }
 function increaseGold(factor) {
     gold += factor;
