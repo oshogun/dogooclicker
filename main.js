@@ -29,6 +29,7 @@ function init() {
     document.getElementById("pop_limit").innerHTML = pop_limit;
     document.getElementById("farms").innerHTML = farms;
     document.getElementById("max_miners").innerHTML = max_miners;
+    alert("Task failed succesfully");
 }
 function increaseGold(factor) {
     gold += factor;
@@ -197,8 +198,8 @@ function buyWorker() {
 }
 
 window.setInterval(function() {
-    document.getElementById("goldPerSec").innerHTML = miners * gold_multiplier;
-    document.getElementById("lumberPerSec").innerHTML = lumberjacks * lumber_multiplier;
-    increaseGold(miners * gold_multiplier);
-    increaseLumber(lumberjacks * lumber_multiplier);
-}, 1000);
+    document.getElementById("goldPerSec").innerHTML = miners * gold_multiplier / 2;
+    document.getElementById("lumberPerSec").innerHTML = lumberjacks * lumber_multiplier / 2;
+    increaseGold((miners * gold_multiplier) / 2);
+    increaseLumber((lumberjacks * lumber_multiplier) / 2);
+}, 500);
