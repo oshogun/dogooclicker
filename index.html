@@ -6,44 +6,44 @@
         <title> Dogoo Clicker </title>
     </head>
     <body onload="init()">
-        <button type="button" onclick="increaseGold(1)"> Mine gold </button>
-        <button type="button" onclick="increaseLumber(1)"> Chop tree </button>
-        
-        <p>Gold: <span id="gold">0</span> (<span id="goldPerSec">0</span> per second)</p>
-        <p>Lumber: <span id="lumber">0</span> (<span id="lumberPerSec">0</span> per second)</p>
-        <p>Population: <span id="current_pop">0</span> / <span id="pop_limit">0</span></p>
-        <hr>
-        
-        <h1> Buildings </h1>
-        <h2> Farms: increase population limit </h2>
-        <p> Farms: <span id="farms">0</span></p>
-        <p> Cost: <span id="farmGoldCost">10</span> gold, <span id="farmLumberCost">5</span> lumber </p>
-        <button type="button" onclick="buildFarm()"> Build farm </button>
-        
-        <h2> Gold Mines: allows workers to mine gold </h2>
-        <p> Mines: <span id="mines">0</span> (cost <span id="mineGoldCost">30</span> gold, <span id="mineLumberCost">50</span> lumber)</p>
-        <p> Miners: <span id="miners">0</span> / <span id="max_miners">0</span> (cost <span id="miner_cost">5</span> gold) </p>
-        <button type="button" onclick="buildMine()"> Build mine </button>
-        <button type="button" onclick="buyMiner()"> Create miner </button>
-        
-        <h2> Lumber Camps: allows lumberjacks to harvest wood </h2>
-        <p> Lumber camps: <span id="lumber_camps">0</span> (cost <span id="lcGoldCost">50</span> gold, <span id = "lcLumberCost">30</span> lumber) </p>
-        <p> Lumberjacks: <span id="lumberjacks">0</span> / <span id="max_lumberjacks">0</span> (cost <span id="ljGoldCost">5</span> gold) </p>
-        <button type="button" onclick="buildLumberCamp()"> Build lumber camp </button>
-        <button type="button" onclick="buyLumberjack()"> Create lumberjack </button>
-        
-        <h2> Markets: allows traders to inflate gold production </h2>
-        <p> Markets: <span id="markets">0</span> (cost <span id="marketGoldCost">1000</span> gold, <span id="marketLumberCost">680</span> lumber) </p>
-        <p> Traders: <span id="traders">0</span> / <span id="max_traders">0</span> (cost <span id="traderCost">40</span> gold) </p>
-        <button type="button" onclick="buildMarket()"> Build market </button>
-        <button type="button" onclick="buyTrader()"> Create trader </button>
-        
-        <h2> Sawmills: boosts lumber production</h2>
-        <p>Sawmills: <span id="sawmills">0</span> (cost <span id="sawmillGoldCost">680</span> gold, <span id="sawmillLumberCost">1000</span> lumber)</p>
-        <p>Workers: <span id="workers">0</span> / <span id="max_workers">0</span> (cost <span id="workerCost">40</span> gold)</p>
-        <button type="button" onclick="buildSawmill()"> Build sawmill </button>
-        <button type="button" onclick="buyWorker()"> Create worker</button>
-    
+        <div class="resources">
+            <button type="button" class="mining" onclick="increaseGold(1)"> Mine gold </button>
+            <button type="button" class="mining" onclick="increaseLumber(1)"> Chop tree </button>
+            <p>Gold: <span id="gold">0</span> (<span id="goldPerSec">0</span> per second)</p>
+            <p>Lumber: <span id="lumber">0</span> (<span id="lumberPerSec">0</span> per second)</p>
+            <p>Population: <span id="current_pop">0</span> / <span id="pop_limit">0</span></p>
+        </div>      
+        <div class="buildings">
+            <h1> Buildings </h1>
+            <h2> Farms: increase population limit </h2>
+            <p> Farms: <span id="farms">0</span></p>
+            <p> Cost: <span id="farmGoldCost">10</span> gold, <span id="farmLumberCost">5</span> lumber </p>
+            <button type="button" class="build" id="buildFarm" onclick="buildFarm()"> Build farm </button>
+
+            <h2> Gold Mines: allows workers to mine gold </h2>
+            <p> Mines: <span id="mines">0</span> (cost <span id="mineGoldCost">30</span> gold, <span id="mineLumberCost">50</span> lumber)</p>
+            <p> Miners: <span id="miners">0</span> / <span id="max_miners">0</span> (cost <span id="miner_cost">5</span> gold) </p>
+            <button type="button" class="build" id="buildMine" onclick="buildMine()"> Build mine </button>
+            <button type="button" class="build" id="buyMiner" onclick="buyMiner()"> Create miner </button>
+
+            <h2> Lumber Camps: allows lumberjacks to harvest wood </h2>
+            <p> Lumber camps: <span id="lumber_camps">0</span> (cost <span id="lcGoldCost">50</span> gold, <span id = "lcLumberCost">30</span> lumber) </p>
+            <p> Lumberjacks: <span id="lumberjacks">0</span> / <span id="max_lumberjacks">0</span> (cost <span id="ljGoldCost">5</span> gold) </p>
+            <button type="button" class="build" id="buildLumberCamp" onclick="buildLumberCamp()"> Build lumber camp </button>
+            <button type="button" class="build" id="buyLumberJack" onclick="buyLumberjack()"> Create lumberjack </button>
+
+            <h2> Markets: allows traders to inflate gold production </h2>
+            <p> Markets: <span id="markets">0</span> (cost <span id="marketGoldCost">1000</span> gold, <span id="marketLumberCost">680</span> lumber) </p>
+            <p> Traders: <span id="traders">0</span> / <span id="max_traders">0</span> (cost <span id="traderCost">40</span> gold) </p>
+            <button type="button" class="build" id="buildMarket" onclick="buildMarket()"> Build market </button>
+            <button type="button" class="build" id="buyTrader" onclick="buyTrader()"> Create trader </button>
+
+            <h2> Sawmills: boosts lumber production</h2>
+            <p>Sawmills: <span id="sawmills">0</span> (cost <span id="sawmillGoldCost">680</span> gold, <span id="sawmillLumberCost">1000</span> lumber)</p>
+            <p>Workers: <span id="workers">0</span> / <span id="max_workers">0</span> (cost <span id="workerCost">40</span> gold)</p>
+            <button type="button" class="build" id="buildSawmill" onclick="buildSawmill()"> Build sawmill </button>
+            <button type="button" class="build" id="buyWorker" onclick="buyWorker()"> Create worker</button>
+        </div>
         <script type="text/javascript" src="main.js"></script>
-    </body
+    </body>
 </html>

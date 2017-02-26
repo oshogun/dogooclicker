@@ -23,13 +23,16 @@ var workers = 0;
 var max_workers = 0;
 
 function init() {
-    document.getElementById("gold").innerHTML = gold;
-    document.getElementById("lumber").innerHTML = lumber;
-    document.getElementById("current_pop").innerHTML = population;
-    document.getElementById("pop_limit").innerHTML = pop_limit;
-    document.getElementById("farms").innerHTML = farms;
-    document.getElementById("max_miners").innerHTML = max_miners;
-    alert("ACHA QUE TENS O QUE É NECESSARIO PARA CLICARES NO MEU COOKIE?");
+    var greetings = [
+        "whaddup boi",
+        "Welcome to mouse breaking simulator 2017",
+        "This is not a better game than Minecraft",
+        "Behold the Wizard, beware his powers. Unspeakable powers",
+        "Alert boxes are really annoying, aren't they?",
+        "Prepare yourself."
+    ];
+    var selection = Math.floor(Math.random() * 10) % greetings.length;
+    alert(greetings[selection]);
 }
 function increaseGold(factor) {
     gold += factor;
