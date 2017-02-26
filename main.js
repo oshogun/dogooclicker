@@ -198,8 +198,8 @@ function buyWorker() {
 }
 
 window.setInterval(function() {
-    document.getElementById("goldPerSec").innerHTML = miners * gold_multiplier / 2;
-    document.getElementById("lumberPerSec").innerHTML = lumberjacks * lumber_multiplier / 2;
+    document.getElementById("goldPerSec").innerHTML = miners * gold_multiplier;
+    document.getElementById("lumberPerSec").innerHTML = lumberjacks * lumber_multiplier;
     increaseGold((miners * gold_multiplier) / 2);
     increaseLumber((lumberjacks * lumber_multiplier) / 2);
 }, 500);
