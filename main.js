@@ -192,8 +192,8 @@ function buildSawmill() {
     var nextGoldCost = Math.floor(1000 * Math.pow(1.1, sawmills));
     var nextLumberCost = Math.floor(680 * Math.pow(1.1, sawmills));
     document.getElementById("sawmills").innerHTML = sawmills;
-    document.getElementById("marketGoldCost").innerHTML = nextGoldCost;
-    document.getElementById("marketLumberCost").innerHTML = nextLumberCost;
+    document.getElementById("sawmillGoldCost").innerHTML = nextGoldCost;
+    document.getElementById("sawmillLumberCost").innerHTML = nextLumberCost;
     document.getElementById("gold").innerHTML = gold;
     document.getElementById("lumber").innerHTML = lumber;
     document.getElementById("max_workers").innerHTML = max_workers;
