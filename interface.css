@@ -42,7 +42,13 @@ button.build {
     display: inline-block;
 }
 
-
+.chatbox {
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:54%;
+    height:260px;
+}
 h1 {
     font-family:'Open Sans', sans-serif;
 }

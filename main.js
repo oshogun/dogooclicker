@@ -1,6 +1,8 @@
 // Main variables
 var gold_multiplier = 1;
 var lumber_multiplier = 1;
+var gold_per_second = 0;
+var lumber_per_second = 0;
 var click_power = 1;
 var gold = 0;
 var lumber = 0;
@@ -25,6 +27,7 @@ var workers = 0;
 var max_workers = 0;
 
 var bodybuildingLevel = 0;
+var toolworkingLevel = 0;
 
 function clickGold() {
     increaseGold(click_power);
@@ -212,22 +215,38 @@ function buyWorker() {
 }
 
 function upgradeBodybuilding() {
-    var bodybuildingCost = Math.floor(100 * Math.pow(bodybuildingLevel, 1.1));
+    var bodybuildingCost = Math.floor(100 * Math.pow(bodybuildingLevel + 1, 1.1));
     if (gold >= bodybuildingCost) {
         gold -= bodybuildingCost;
         bodybuildingLevel++;
         click_power += Math.ceil(Math.LOG10E * Math.pow(bodybuildingLevel, Math.random()));
     }
-    var nextCost = Math.floor(100 *  Math.pow(bodybuildingLevel, 1.1));
+    var nextCost = Math.floor(100 *  Math.pow(bodybuildingLevel + 1, 1.1));
     document.getElementById("bodybuilding").innerHTML = bodybuildingLevel;
     document.getElementById("bodybuildingCost").innerHTML = nextCost;
     document.getElementById("click_power").innerHTML = click_power;
     document.getElementById("gold").innerHTML = gold;
 }
 
+function upgradeToolworking() {
+    var toolworkingCost = Math.floor(300 * Math.pow(toolworkingLevel + 1, 1.1));
+    if (lumber >= toolworkingCost) {
+        lumber -= toolworkingCost;
+        toolworkingLevel++;
+        click_power += (toolworkingLevel / 1000) * lumber_per_second;
+    }
+    var nextCost = Math.floor(300 *  Math.pow(toolworkingLevel + 1, 1.1));
+    document.getElementById("toolworking").innerHTML = toolworkingLevel;
+    document.getElementById("toolworkingCost").innerHTML = nextCost;
+    document.getElementById("click_power").innerHTML = click_power;
+    document.getElementById("lumber").innerHTML = lumber;
+}
 window.setInterval(function() {
-    document.getElementById("goldPerSec").innerHTML = miners * gold_multiplier;
-    document.getElementById("lumberPerSec").innerHTML = lumberjacks * lumber_multiplier;
-    increaseGold((miners * gold_multiplier) / 2);
-    increaseLumber((lumberjacks * lumber_multiplier) / 2);
+    lumber_per_second = lumberjacks * lumber_multiplier;
+    gold_per_second = miners * gold_multiplier;
+    document.getElementById("goldPerSec").innerHTML = gold_per_second;
+    document.getElementById("lumberPerSec").innerHTML = lumber_per_second;
+    increaseGold(gold_per_second / 2);
+    increaseLumber(lumber_per_second / 2);
+    document.getElementById("click_power").innerHTML = click_power;
 }, 500);
