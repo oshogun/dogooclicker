@@ -16,6 +16,7 @@ body {
     
 }
 button.mining {
+    cursor:pointer;
     border: none;
     color:white;
     background-color:darkslategrey;
@@ -51,6 +52,7 @@ button.mining {
 }
 
 button.build {
+    cursor: pointer;
     border: none;
     color:white;
     background-color:darkslategrey;
@@ -63,6 +65,7 @@ button.build {
 }
 
 button.upgrade {
+    cursor: pointer;
     border: none;
     color:white;
     background-color:darkslategrey;
