@@ -55,6 +55,19 @@ button.build {
     display: inline-block;
 }
 
+button.upgrade {
+    border: none;
+    color:white;
+    background-color:darkslategrey;
+    width: 100px;
+    height:35px;
+    font-size: 14px;
+    font-family: 'Sansita',sans-serif;
+    text-align: center;
+    display: inline-block;
+}
+
+
 .chatbox {
     position:absolute;
     bottom:0;
