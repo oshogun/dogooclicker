@@ -1,24 +1,36 @@
 .resources {
     background-color: aquamarine;
     font-family: monospace;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
+    width:45%;
 }
 button.mining {
     border: none;
     background-color:aqua;
-    size:20px;
-    font-size:14px;
-    font-family: fantasy;
+    width: 120px;
+    height: 40px;
+    font-size:23px;
+    font-family: 'Sansita', sans-serif;
     text-align: center;
     display: inline-block;
+}
+.upgrades {
+    background-color: darkgray;
+    position: absolute;
+    right:0;
+    top:0;
+    width:54%;
+    height: 400px;
+    overflow-y: scroll;
 }
 
 .buildings {
     background-color: antiquewhite;
     overflow-y:scroll;
+    font-family: 'Open Sans', sans-serif;
     height: 500px;
-    width: 600px;
+    width: 45%;
 }
 
 button.build {
@@ -29,3 +41,13 @@ button.build {
     text-align: center;
     display: inline-block;
 }
+
+
+h1 {
+    font-family:'Open Sans', sans-serif;
+}
+
+h2 {
+    font-family:'Open Sans', sans-serif;
+}
+

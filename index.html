@@ -3,15 +3,16 @@
         <meta charset="UTF-8">
     <head>
         <link rel="stylesheet" type="text/css" href="interface.css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Sansita" rel="stylesheet">
         <title> Dogoo Clicker </title>
     </head>
     <body onload="init()">
         <div class="resources">
-            <button type="button" class="mining" onclick="increaseGold(1)"> Mine gold </button>
-            <button type="button" class="mining" onclick="increaseLumber(1)"> Chop tree </button>
+            <button type="button" class="mining" onclick="clickGold()"> Mine gold </button>
+            <button type="button" class="mining" onclick="clickLumber()"> Chop tree </button>
             <p>Gold: <span id="gold">0</span> (<span id="goldPerSec">0</span> per second)</p>
             <p>Lumber: <span id="lumber">0</span> (<span id="lumberPerSec">0</span> per second)</p>
-            <p>Population: <span id="current_pop">0</span> / <span id="pop_limit">0</span></p>
+            <p>Population: <span id="current_pop">0</span> / <span id="pop_limit">10</span></p>
         </div>      
         <div class="buildings">
             <h1> Buildings </h1>
@@ -43,6 +44,14 @@
             <p>Workers: <span id="workers">0</span> / <span id="max_workers">0</span> (cost <span id="workerCost">40</span> gold)</p>
             <button type="button" class="build" id="buildSawmill" onclick="buildSawmill()"> Build sawmill </button>
             <button type="button" class="build" id="buyWorker" onclick="buyWorker()"> Create worker</button>
+        </div>
+        <div class="upgrades">
+            <h1>Upgrades</h1>
+            <h2>Bodybuilding: increases clicking power</h2>
+            <p>Level: <span id= bodybuilding>0</span></p>
+            <p>Cost: <span id=bodybuildingCost>100</span> gold</p>
+            <p>Current clicking power: <span id="click_power">1</span></p>
+            <button type="button" class="upgrade" id="upgradeBodybuilding" onclick="upgradeBodybuilding()"> UPGRADE </button>
         </div>
         <script type="text/javascript" src="main.js"></script>
     </body>

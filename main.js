@@ -1,5 +1,7 @@
+// Main variables
 var gold_multiplier = 1;
 var lumber_multiplier = 1;
+var click_power = 1;
 var gold = 0;
 var lumber = 0;
 var population = 0;
@@ -21,6 +23,15 @@ var max_traders = 0;
 var sawmills = 0;
 var workers = 0;
 var max_workers = 0;
+
+var bodybuildingLevel = 0;
+
+function clickGold() {
+    increaseGold(click_power);
+}
+function clickLumber() {
+    increaseLumber(click_power);
+}
 
 function init() {
     var greetings = [
@@ -156,7 +167,7 @@ function buyTrader() {
         traders = traders + 1;
         gold -= traderCost;
         population++;
-        gold_multiplier+= Math.floor(Math.pow(traders, Math.E));
+        gold_multiplier+=  traders * Math.ceil(Math.random() * 10);
     }
     var nextGoldCost = Math.floor(40 * Math.pow(1.1, traders));
     document.getElementById("gold").innerHTML = gold;
@@ -191,13 +202,27 @@ function buyWorker() {
         workers = workers + 1;
         gold -= workerCost;
         population++;
-        lumber_multiplier += Math.floor(Math.pow(workers, Math.E));
+        lumber_multiplier += workers * Math.ceil(Math.random() * 10);
     }
     var nextGoldCost = Math.floor(40 * Math.pow(1.1, workers));
     document.getElementById("gold").innerHTML = gold;
     document.getElementById("workers").innerHTML = workers;
     document.getElementById("workerCost").innerHTML = nextGoldCost;
     document.getElementById("current_pop").innerHTML = population;
+}
+
+function upgradeBodybuilding() {
+    var bodybuildingCost = Math.floor(100 * Math.pow(bodybuildingLevel, 1.1));
+    if (gold >= bodybuildingCost) {
+        gold -= bodybuildingCost;
+        bodybuildingLevel++;
+        click_power += Math.ceil(Math.LOG10E * Math.pow(bodybuildingLevel, Math.random()));
+    }
+    var nextCost = Math.floor(100 *  Math.pow(bodybuildingLevel, 1.1));
+    document.getElementById("bodybuilding").innerHTML = bodybuildingLevel;
+    document.getElementById("bodybuildingCost").innerHTML = nextCost;
+    document.getElementById("click_power").innerHTML = click_power;
+    document.getElementById("gold").innerHTML = gold;
 }
 
 window.setInterval(function() {
