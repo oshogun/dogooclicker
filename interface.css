@@ -1,5 +1,6 @@
 body {
     background-image: url("map.bmp");
+    background-color: black;
 }
 .resources {
     background-color: rgba(0,0,0,0.7);
