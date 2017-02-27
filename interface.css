@@ -1,13 +1,18 @@
+body {
+    background-image: url("map.bmp");
+}
 .resources {
-    background-color: aquamarine;
+    background-color: rgba(0,0,0,0.7);
     font-family: monospace;
     font-size: 12px;
     font-weight: bold;
+    color:white;
     width:45%;
 }
 button.mining {
     border: none;
-    background-color:aqua;
+    color:white;
+    background-color:darkslategrey;
     width: 120px;
     height: 40px;
     font-size:23px;
@@ -16,7 +21,10 @@ button.mining {
     display: inline-block;
 }
 .upgrades {
-    background-color: darkgray;
+    background-color: rgba(0,0,0,0.8);
+    color: darkgoldenrod;
+    font-family: monospace;
+    font-weight: bold;
     position: absolute;
     right:0;
     top:0;
@@ -26,18 +34,22 @@ button.mining {
 }
 
 .buildings {
-    background-color: antiquewhite;
+    background-color: rgba(0,0,0,0.8);
+    color:lightcyan;
     overflow-y:scroll;
-    font-family: 'Open Sans', sans-serif;
+    font-family: monospace;
     height: 500px;
     width: 45%;
 }
 
 button.build {
-    background-color: cornflowerblue;
-    border:none;
-    size:20px;
-    font-family: cursive;
+    border: none;
+    color:white;
+    background-color:darkslategrey;
+    width: 100px;
+    height:35px;
+    font-size: 14px;
+    font-family: 'Sansita',sans-serif;
     text-align: center;
     display: inline-block;
 }
@@ -50,10 +62,10 @@ button.build {
     height:260px;
 }
 h1 {
-    font-family:'Open Sans', sans-serif;
+    font-family:monospace;
 }
 
 h2 {
-    font-family:'Open Sans', sans-serif;
+    font-family:monospace;
 }
 
